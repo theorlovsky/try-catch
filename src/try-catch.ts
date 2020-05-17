@@ -2,6 +2,7 @@
  * Wrap a function that may throw in a try-catch block.
  *
  * @example
+ *
  * const stringify = (value: any): string | undefined => {
  *   const [error, str] = tryCatch(() => JSON.stringify(value));
  *

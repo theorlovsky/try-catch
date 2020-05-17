@@ -20,6 +20,7 @@
     "url": "https://github.com/theorlovsky/try-catch"
   },
   "bugs": "https://github.com/theorlovsky/try-catch/issues",
+  "homepage": "https://theorlovsky.github.io/try-catch/",
   "license": "MIT",
   "engines": {
     "node": ">=10",

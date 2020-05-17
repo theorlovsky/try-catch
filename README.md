@@ -7,6 +7,41 @@
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
-This project was created using [typescript-library-starter][typescript-library-starter].
+## About
+
+Use try-catch statements in a more convenient way with this package.
+
+## Installation
+
+```shell script
+yarn add @orlovsky/try-catch
+```
+or
+```shell script
+npm i @orlovsky/try-catch
+```
+
+## Usage
+
+```typescript
+import { tryCatch } from '@orlovsky/try-catch';
+
+// ...
+
+const [error, result] = tryCatch(() => someFnThatMayThrow());
+
+if (error) {
+  // do something with error
+  return;
+}
+
+// do something with result
+```
+
+### Additional info
+
+Inspired by [try-catch][inspired-by].\
+Created with [typescript-library-starter][typescript-library-starter].
 
 [typescript-library-starter]: https://github.com/alexjoverm/typescript-library-starter
+[inspired-by]: https://github.com/coderaiser/try-catch

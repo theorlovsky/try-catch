@@ -22,7 +22,7 @@
   "bugs": "https://github.com/theorlovsky/try-catch/issues",
   "license": "MIT",
   "engines": {
-    "node": ">=8.0.0",
+    "node": ">=10",
     "npm": "please-you-yarn",
     "yarn": ">=1.22"
   },

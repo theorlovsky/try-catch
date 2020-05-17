@@ -27,7 +27,7 @@
     "forceConsistentCasingInFileNames": true,
     "paths": {
       "@orlovsky/try-catch": [
-        "src/index.ts"
+        "src/try-catch.ts"
       ]
     }
   },

@@ -1,0 +1,136 @@
+{
+  "name": "try-catch",
+  "version": "0.0.0-development",
+  "description": "Functional try-catch wrapper written in TypeScript",
+  "keywords": [
+    "try",
+    "catch",
+    "try-catch"
+  ],
+  "private": false,
+  "main": "dist/try-catch.umd.js",
+  "module": "dist/try-catch.es5.js",
+  "typings": "dist/types/try-catch.d.ts",
+  "files": [
+    "dist"
+  ],
+  "author": "Alex Orlovsky <alex94orlovsky@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/theorlovsky/try-catch"
+  },
+  "bugs": "https://github.com/theorlovsky/try-catch/issues",
+  "license": "MIT",
+  "engines": {
+    "node": ">=6.0.0",
+    "npm": "please-you-yarn",
+    "yarn": ">=1.22"
+  },
+  "scripts": {
+    "lint": "tslint  --project tsconfig.json -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
+    "prebuild": "rimraf dist",
+    "build": "tsc --module commonjs && rollup -c rollup.config.ts && typedoc --out docs --target es6 --theme minimal --mode file src",
+    "start": "rollup -c rollup.config.ts -w",
+    "test": "jest --coverage",
+    "test:watch": "jest --coverage --watch",
+    "test:prod": "npm run lint && npm run test -- --no-cache",
+    "deploy-docs": "ts-node tools/gh-pages-publish",
+    "report-coverage": "cat ./coverage/lcov.info | coveralls",
+    "commit": "git-cz",
+    "semantic-release": "semantic-release",
+    "semantic-release-prepare": "ts-node tools/semantic-release-prepare",
+    "precommit": "lint-staged",
+    "travis-deploy-once": "travis-deploy-once",
+    "format": "prettier --write ./**/*.ts"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
+  },
+  "jest": {
+    "transform": {
+      ".(ts|tsx)": "ts-jest"
+    },
+    "testEnvironment": "node",
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/test/"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 90,
+        "functions": 95,
+        "lines": 95,
+        "statements": 95
+      }
+    },
+    "collectCoverageFrom": [
+      "src/*.{js,ts}"
+    ]
+  },
+  "prettier": {
+    "semi": true,
+    "singleQuote": true,
+    "arrowParens": "always",
+    "endOfLine": "lf",
+    "printWidth": 80,
+    "tabWidth": 2,
+    "trailingComma": "all",
+    "useTabs": false
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^7.1.2",
+    "@types/jest": "^23.3.2",
+    "@types/node": "^10.11.0",
+    "colors": "^1.4.0",
+    "commitizen": "^3.1.2",
+    "coveralls": "^3.1.0",
+    "cross-env": "^5.2.1",
+    "cz-conventional-changelog": "^2.1.0",
+    "husky": "^1.3.1",
+    "jest": "^25.5.4",
+    "jest-config": "^25.5.4",
+    "lint-staged": "^8.0.0",
+    "lodash.camelcase": "^4.3.0",
+    "npm-check-updates": "^6.0.1",
+    "prettier": "^1.19.1",
+    "prompt": "^1.0.0",
+    "replace-in-file": "^3.4.2",
+    "rimraf": "^2.6.2",
+    "rollup": "^0.67.0",
+    "rollup-plugin-commonjs": "^9.1.8",
+    "rollup-plugin-json": "^3.1.0",
+    "rollup-plugin-node-resolve": "^3.4.0",
+    "rollup-plugin-sourcemaps": "^0.4.2",
+    "rollup-plugin-typescript2": "^0.18.0",
+    "semantic-release": "^17.0.7",
+    "shelljs": "^0.8.4",
+    "travis-deploy-once": "^5.0.11",
+    "ts-jest": "^25.2.1",
+    "ts-node": "^8.10.1",
+    "tslint": "^6.1.2",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-config-standard": "^8.0.1",
+    "typedoc": "^0.16.9",
+    "typescript": "^3.9.2"
+  }
+}
